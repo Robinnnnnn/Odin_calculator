@@ -1,4 +1,4 @@
-body {
+#abody {
     display: grid;
     background-color: aquamarine;
     grid-template-columns: 1fr 8fr 1fr;
@@ -70,4 +70,23 @@ body {
     grid-column-start: 1;
     grid-column-end: 5;
     font-family: 'Special Elite', cursive;
+}
+
+#modes {
+    grid-row-start: 3;
+    grid-column-start: 2;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier Prime', monospace;
+    height: 30px;
+    line-height: 30px;
+    width: 100px;
+    background-color: azure;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.symbC {
+    color: rgb(70, 3, 133);
+    font-weight: 800;
 }

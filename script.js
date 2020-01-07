@@ -3,6 +3,9 @@ let buttonId = "btn0";
 let buttonsInput;
 let btntext;
 let input = "0";
+let body = document.getElementById("abody");
+let modeTracker = 0;
+let screen = document.getElementById('calcText');
 
 
 //returns the id of the button that was clicked.
@@ -28,7 +31,7 @@ function getInput() {
 
 //displays inut to screen
 function displayToScreen() {
-    let screen = document.getElementById('calcText');
+
     if (input.match(/\/0/)) {
         input = "ERROR. !/0"
         screen.textContent = `${input}`;
@@ -44,6 +47,7 @@ function clearInput() {
     displayToScreen();
 }
 
+//reports answer to screen
 function equals() {
     let screen = document.getElementById('calcText');
     let answer = eval(input).toFixed(2);
@@ -57,23 +61,17 @@ function equals() {
 
 }
 
+function modes() {
 
-function operate(operator, num1, num2) {
-
-}
-
-function add(x, y) {
-    return x + y;
-}
-
-function subtract(x, y) {
-    return x - y;
-}
-
-function multiply(x, y) {
-    return x * y;
-}
-
-function divide(x, y) {
-    return x / y;
+    if (modeTracker === 0) {
+        abody.style.backgroundColor = "rgb(2, 65, 57)";
+        screen.style.backgroundColor = "#0f3e40";
+        screen.style.color = "White";
+        modeTracker = 1;
+    } else if (modeTracker === 1) {
+        abody.style.backgroundColor = "aquamarine";
+        screen.style.backgroundColor = "cadetblue";
+        screen.style.color = "black";
+        modeTracker = 0;
+    }
 }
