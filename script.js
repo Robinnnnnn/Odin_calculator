@@ -29,18 +29,34 @@ function getInput() {
 //displays inut to screen
 function displayToScreen() {
     let screen = document.getElementById('calcText');
-    screen.textContent = `${input}`;
+    if (input.match(/\/0/)) {
+        input = "ERROR. !/0"
+        screen.textContent = `${input}`;
+    } else {
+        screen.textContent = `${input}`;
+    }
+
 }
 
-function doWork() {
-    getId();
-
-}
-
+//clears screen to 0
 function clearInput() {
     input = "0";
     displayToScreen();
 }
+
+function equals() {
+    let screen = document.getElementById('calcText');
+    let answer = eval(input).toFixed(2);
+    let answerSplit = answer.toString().split(".");
+    if (answerSplit[1] === "00") {
+        input = parseInt(answerSplit[0]);
+    } else {
+        input = answer;
+    }
+    screen.textContent = `${input}`;
+
+}
+
 
 function operate(operator, num1, num2) {
 
