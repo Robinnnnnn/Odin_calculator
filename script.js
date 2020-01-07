@@ -6,6 +6,7 @@ let input = "0";
 let body = document.getElementById("abody");
 let modeTracker = 0;
 let screen = document.getElementById('calcText');
+let solution;
 
 
 //returns the id of the button that was clicked.
@@ -25,11 +26,13 @@ function getInput() {
     } else {
         input = input + buttonsInput.textContent;
     }
-
     displayToScreen();
 }
 
-//displays inut to screen
+
+
+
+//displays calculation to screen
 function displayToScreen() {
 
     if (input.match(/\/0/)) {
@@ -47,20 +50,21 @@ function clearInput() {
     displayToScreen();
 }
 
-//reports answer to screen
+//reports answer of calculation to screen - linked to html button
 function equals() {
     let screen = document.getElementById('calcText');
     let answer = eval(input).toFixed(2);
     let answerSplit = answer.toString().split(".");
     if (answerSplit[1] === "00") {
-        input = parseInt(answerSplit[0]);
+        solution = parseInt(answerSplit[0]);
     } else {
-        input = answer;
+        solution = answer;
     }
-    screen.textContent = `${input}`;
+    screen.textContent = `${solution}`;
+
 
 }
-
+//day/night modes
 function modes() {
 
     if (modeTracker === 0) {
