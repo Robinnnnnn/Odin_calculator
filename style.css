@@ -47,6 +47,8 @@
     border-radius: 10px;
     font-family: 'Courier Prime', monospace;
     font-size: 24px;
+    overflow: auto;
+    white-space: nowrap;
 }
 
 .buttons {
@@ -87,6 +89,7 @@
 }
 
 .symbC {
-    color: rgb(70, 3, 133);
+    color: aquamarine;
     font-weight: 800;
+    background-color: darkslategray;
 }

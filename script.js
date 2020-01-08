@@ -6,7 +6,7 @@ let input = "0";
 let body = document.getElementById("abody");
 let modeTracker = 0;
 let screen = document.getElementById('calcText');
-let solution;
+let solution = 0;
 
 
 //returns the id of the button that was clicked.
@@ -21,30 +21,30 @@ function getId() {
 //returns innertext of the button that was clicked.
 function getInput() {
     buttonsInput = document.getElementById(buttonId);
-    if (input === "0") {
+
+    if (screen.textContent === solution.toString()) {
+        if (buttonsInput.textContent.match(/\D/)) {
+            input = solution.toString() + buttonsInput.textContent;
+        } else {
+            input = buttonsInput.textContent;
+        }
+    } else if (input === "0") {
         input = buttonsInput.textContent;
     } else {
         input = input + buttonsInput.textContent;
     }
     displayToScreen();
+
 }
-
-
-
 
 //displays calculation to screen
 function displayToScreen() {
 
-    if (input.match(/\/0/)) {
-        input = "ERROR. !/0"
-        screen.textContent = `${input}`;
-    } else {
-        screen.textContent = `${input}`;
-    }
+    screen.textContent = `${input}`;
 
 }
 
-//clears screen to 0
+//clears screen to 0 w/ clear btn.
 function clearInput() {
     input = "0";
     displayToScreen();
@@ -55,12 +55,18 @@ function equals() {
     let screen = document.getElementById('calcText');
     let answer = eval(input).toFixed(2);
     let answerSplit = answer.toString().split(".");
-    if (answerSplit[1] === "00") {
+
+    if (input.match(/\/0/)) {
+        screen.textContent = "ERROR. !/0";
+    } else if (answerSplit[1] === "00") {
         solution = parseInt(answerSplit[0]);
+        screen.textContent = `${solution}`;
     } else {
         solution = answer;
+        screen.textContent = `${solution}`;
     }
-    screen.textContent = `${solution}`;
+
+
 
 
 }
