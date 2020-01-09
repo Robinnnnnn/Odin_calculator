@@ -93,3 +93,8 @@
     font-weight: 800;
     background-color: darkslategray;
 }
+
+.buttons:hover,
+#robin:hover {
+    cursor: pointer, default;
+}
